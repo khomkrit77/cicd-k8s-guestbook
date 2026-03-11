@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: guestbook-web
+spec:
+  replicas: 2 # สั่งให้รันหน้าเว็บ 2 ตัวพร้อมกัน (High Availability)
+  selector:
+    matchLabels:
+      app: guestbook
+  template:
+    metadata:
+      labels:
+        app: guestbook
+    spec:
+      containers:
+      - name: guestbook
+        image: romeokiller/cicd-pro-guestbook:9 # ใช้ Image เดิมที่เราเคยทำไว้
+        ports:
+        - containerPort: 80

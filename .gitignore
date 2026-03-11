@@ -1,0 +1,5 @@
+redis/
+k8s-data/
+__pycache__/
+*.pyc
+.env
