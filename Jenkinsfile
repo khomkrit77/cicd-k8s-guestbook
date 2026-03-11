@@ -25,7 +25,7 @@ pipeline {
                     def appImage = docker.build("${DOCKER_HUB_USER}/${IMAGE_NAME}:${BUILD_NUMBER}")
                     
                     // 2. Login และ Push ขึ้น Docker Hub
-                    docker.withRegistry('', 'dockerhub-credentials-id') { // ตรวจสอบ ID Credentials ใน Jenkins ให้ตรง
+                    docker.withRegistry('', 'dockerhub-credentials') { // ตรวจสอบ ID Credentials ใน Jenkins ให้ตรง
                         appImage.push()
                         appImage.push('latest')
                     }
